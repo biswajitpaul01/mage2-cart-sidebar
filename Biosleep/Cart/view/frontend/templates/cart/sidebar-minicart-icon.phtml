@@ -1,0 +1,19 @@
+<div data-bind="scope: 'simpleCartCounter'" id="cart-countbox">    
+    <a href="#" class="open-drawer-link">
+        <i class="fa fa-shopping-bag fa-2x"></i>
+        <span class="cart-counter" data-bind="text: getCartParam('summary_count')"></span>
+    </a>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#cart-countbox": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "simpleCartCounter": {
+                        "component": "Magento_Checkout/js/view/minicart"
+                    }
+                }
+            }
+        }
+    }
+</script>

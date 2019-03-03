@@ -1,0 +1,107 @@
+<div id="drawer" data-bind="scope: 'simpleCartCount'">
+
+    <p class="cart-heading">
+        <?= $block->escapeHtml(__('Your cart')) ?> <small><!-- ko text: getCartParam('summary_count') || 0 --><!-- /ko --> items</small>
+        <a class="close-drawer"><i class="fa fa-times fa-2x"></i></a>
+    </p>
+
+    <div data-bind="visible: getCartParam('summary_count')">
+        <div class="drawer-content">
+            <div class="sidebar-cart-items" data-bind="foreach: getCartItems().reverse()">
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <!-- ko if: product_has_url -->
+                        <a data-bind="attr: { href: product_url, title: product_name }">
+                            <img data-bind="attr: { src: product_image.src, alt: product_image.alt }">
+                        </a>
+                        <!-- /ko -->
+
+                        <!-- ko ifnot: product_has_url -->
+                        <img data-bind="attr: { src: product_image.src, alt: product_image.alt }">
+                        <!-- /ko -->
+                    </div>
+                    <div class="cart-item-info">
+                        <a data-bind="html: product_name, attr: { href: product_url, title: product_name }"></a>
+
+                        <!-- ko if: options -->
+                        <div>
+                            <!-- ko foreach: options -->
+                            <div><strong data-bind="text: label + ':'"></strong> <span data-bind="html: value"></span></div>
+                            <!-- /ko -->
+                        </div>
+                        <!-- /ko -->                        
+
+                        <div class="ctrl">
+                            <div class="ctrl__button ctrl__button--decrement" data-bind="attr: { 'data-decrement': item_id }">&ndash;</div>
+                            <div class="ctrl__counter">
+                                <input class="ctrl__counter-input" data-bind="attr: { id: 'cart-item-'+item_id+'-qtybox', 'data-cart-item': item_id, 'data-item-boxqty': qty, 'data-cart-item-id': product_sku }, value: qty" type="number" size="4" class="item-qty cart-item-qtybox" min="1" readonly size="4">
+                            </div>
+                            <div class="ctrl__button ctrl__button--increment" data-bind="attr: { 'data-increment': item_id }">+</div>
+                        </div>
+
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="actions-wrapper">
+                            <a data-bind="attr: { href: configure_url, title: 'Edit item' }">
+                                <i class="fa fa-cog fa-lg"></i>
+                            </a>
+                            <a class="cart-item-remove" data-bind="attr: { title: 'Remove item', 'data-cart-item': item_id, 'data-sku': product_sku }">
+                                <i class="fa fa-trash-o fa-lg"></i>
+                            </a>                            
+                        </div>
+                        <div>
+                            <span data-bind="html: product_price"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-info">
+                <div>
+                    <div><strong>Subtotal</strong></div>
+                    <div data-bind="html: getCartParam('subtotal')"></div>
+                </div>
+                <div>
+                    <div><strong>Shipping</strong></div>
+                    <div>Free</div>
+                </div>
+                <div>
+                    <div><strong>Estimated total</strong></div>
+                    <div data-bind="html: getCartParam('subtotal')"></div>
+                </div>
+            </div>
+            <div class="cart-buttons">
+                <a class="btn-cart-link" href="<?php echo $block->getUrl('checkout', ['_secure' => true]); ?>">Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ko if: ! getCartParam('summary_count') -->
+    <div class="no-cart-items">
+        Your cart is empty
+    </div>
+    <!-- /ko -->
+
+    <span style="display:none">
+        <!-- ko text: JSON.stringify( getCartItems() ) -->
+        <!-- /ko -->
+    </span>
+
+</div>
+<div class="cart-backdrop"></div>
+<script>
+window.checkoutConfig = {};
+</script>
+<script type="text/x-magento-init">
+    {
+        "#drawer": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "simpleCartCount": {
+                        "component": "Magento_Checkout/js/view/minicart"                        
+                    }                    
+                }
+            }
+        }
+        
+    }
+</script> 

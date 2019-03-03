@@ -1,0 +1,23 @@
+{
+    "name": "biosleep/module-cart",
+    "description": "Sliding Cart Sidebar",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "email": "biswajitpaul05@gmail.com",
+            "name": "Biswajit Paul"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Biosleep\\Cart\\": ""
+        }
+    },
+    "version": "1.0.0"
+}

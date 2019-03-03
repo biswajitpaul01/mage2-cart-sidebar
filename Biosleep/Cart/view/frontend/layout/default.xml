@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Biosleep_Cart::css/styles.css" media="screen and (min-width: 1px)"/>
+        <css src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" src_type="url"/>
+        <script src="Biosleep_Cart::js/scripts.js" />        
+    </head>    
+    <body>
+
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="sidebar-minicart-icon" template="Biosleep_Cart::cart/sidebar-minicart-icon.phtml" after="logo" />
+        </referenceContainer> 
+
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" name="sidebar-minicart" template="Biosleep_Cart::cart/sidebar-minicart.phtml">
+                
+            </block>            
+        </referenceContainer>         
+
+    </body>
+</page>

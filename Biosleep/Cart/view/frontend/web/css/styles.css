@@ -1,0 +1,222 @@
+/* CART Functions */
+.text-right {
+	text-align: right;
+}
+#cart-countbox {
+	float: right;
+	padding: 0 0.7em;
+}
+/* .minicart-wrapper{
+    display: none;
+} */
+.open-drawer-link{
+    position: relative;
+    display: inline-block;
+}
+.cart-counter {
+	background: chocolate;
+	color: #fff;
+	border-radius: 50%;
+	padding: 0px 5px;
+	font-size: 13px;
+	position: absolute;
+	top: -5px;
+	right: -6px;
+}
+#drawer {
+	position: fixed;
+	right: 0;
+	top: 0;
+	height: 100%;
+	overflow-x: hidden;
+	background: #fff;
+	padding: 5px 0;
+	width: 430px;
+	margin-right: -450px;
+	z-index: 999;
+	box-shadow: 0 0px 10px rgba(0,0,0,0.3);
+}
+.cart-heading {
+    display: flow-root;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ccc;
+    padding: 0 10px 5px;   
+    margin-bottom: 0; 
+}
+.close-drawer {
+	color: gray;
+	float: right;
+	font-size: 14px;
+}
+.close-drawer:hover{
+	color: darkgray;
+	cursor: pointer;
+}
+
+.sidebar-cart-items {
+	max-height: 400px;
+	overflow-y: auto;
+}
+.cart-item {
+	display: grid;
+	grid-template-columns: 84px 1fr 60px;
+	border-bottom: 1px solid #e0e0e0;
+    padding: 1em;
+}
+.cart-item-info a {
+	color: #2e713c;
+}
+.cart-item-info .price-including-tax, .cart-item-info .price-excluding-tax {
+	font-size: 1em;
+}
+.qty-box .item-qty {
+	margin-right: 10px;
+	text-align: center;
+	width: 40px;
+}
+.cart-item-actions {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.actions-wrapper {
+	display: flex;
+	justify-content: space-around;
+}
+.cart-item-actions a {
+    color: #666;
+    height: 16px;
+}
+.cart-item-actions a:hover {
+    color: #aaa;
+}
+.cart-item-remove:hover {
+    cursor: pointer;
+}
+.cart-info {
+	padding: 1em;
+}
+.cart-info > div {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+}
+.cart-buttons {
+	padding: 1em;
+}
+
+.btn-cart-link {
+	display: block;
+	background: #2e713c;
+	color: #fff !important;
+	padding: 0.8em 0;
+	text-align: center;
+	border-radius: 3px;
+}
+
+.btn-cart-link:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.no-cart-items {
+    font-size: 2em; 
+    margin: 2em 0px; 
+    text-align: center;
+}
+
+.cart-backdrop {
+    display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+    bottom: 0;
+    left: 0;
+	background: rgba(0,0,0,0.2);
+	z-index: 10;
+}
+.cart-backdrop:hover {
+    cursor: pointer;
+}
+.cart-backdrop.showing {
+    display: block;
+}
+
+
+
+/* Qty */
+.ctrl {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background-color: #fff;
+	border-radius: 5px;
+	font-size: 16px;
+	margin: 6px 0 0;
+}
+  
+  .ctrl__counter {
+	width: 40px;
+	text-align: center;
+}
+
+  
+  .ctrl__counter.is-input .ctrl__counter-input {
+    opacity: 1;
+    -webkit-transition: opacity 100ms ease-in;
+    transition: opacity 100ms ease-in;
+  }
+  
+  .ctrl__counter-input {
+      height: 24px !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: none;
+    outline: none;
+    border: 0 !important;
+    color: #333C48;
+    text-align: center;
+
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    -webkit-transition: opacity 100ms ease-in;
+    transition: opacity 100ms ease-in;
+  }
+
+  .ctrl__button {
+    width: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: #222;
+    cursor: pointer;
+    background-color: #fff;
+    -webkit-transition: background-color 100ms ease-in;
+    transition: background-color 100ms ease-in;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  }
+  
+  .ctrl__button:hover {
+    background-color: #eee;
+    -webkit-transition: background-color 100ms ease-in;
+    transition: background-color 100ms ease-in;
+  }
+  
+  .ctrl__button:active {
+    background-color: #eee;
+    -webkit-transition: background-color 100ms ease-in;
+    transition: background-color 100ms ease-in;
+  }
+  
+  .ctrl__button--decrement { border-radius: 5px 0 0 5px; }
+  
+  .ctrl__button--increment { border-radius: 0 5px 5px 0; }
